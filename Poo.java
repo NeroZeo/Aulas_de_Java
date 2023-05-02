@@ -5,42 +5,38 @@ public class Poo {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("== Insira os lados do Triângulo X ==");
+		Triangulo x = new Triangulo();
+		Triangulo y = new Triangulo();
+
+		System.out.println("== Insira os lados do Triângulo X ==\n");
 		System.out.println("Informe o lado A.");
-		int ax = sc.nextInt();
+		x.a = sc.nextInt();
 		System.out.println("Informe o lado B.");
-		int bx = sc.nextInt();
+		x.b = sc.nextInt();
 		System.out.println("Informe o lado C.");
-		int cx = sc.nextInt();
+		x.c = sc.nextInt();
 		System.out.println();
 
 		System.out.println("== Insira os lados do Triângulo Y ==");
 		System.out.println("Informe o lado A.");
-		int ay = sc.nextInt();
+		y.a = sc.nextInt();
 		System.out.println("Informe o lado B.");
-		int by = sc.nextInt();
+		y.b = sc.nextInt();
 		System.out.println("Informe o lado C.");
-		int cy = sc.nextInt();
+		y.c = sc.nextInt();
 		System.out.println();
-		
-		double px = (ax + bx + cx) / 2;
-		double areax = Math.sqrt(px*(px-ax)*(px-bx)*(px-cx));
-		
-		double py = (ay + by + cy) / 2;
-		double areay = Math.sqrt(py*(py-ay)*(py-by)*(py-cy));
-		
-		System.out.println("Área do Triângulo X: " + areax);
-		System.out.println("Área do Triângulo Y: " + areay);
-		
-		if(areax >= areay) {
-			System.out.println("A Maior Área é X");
-		}else {
-			System.out.println("A Maior Área é Y");
-		}
-		
-		
-		
-		
+
+// === ÁREA DO CALCULO === \\
+		double areaX = x.area();
+		double areaY = y.area();
+
+		System.out.printf("Área do Triângulo X:%.4f%n", areaX);
+
+		System.out.printf("Área do Triângulo Y:%.4f%n", areaY);
+
+// === CHAMADA DO MÉTODO TAMANHO === \\
+		x.tamanho(areaX, areaY);
+		sc.close();
 	}
 
 }
